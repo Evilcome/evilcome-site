@@ -1,0 +1,90 @@
+include ../mixins/flash-messages
+include ../mixins/auth/auth-forms
+
+doctype html
+html
+
+	//- HTML HEADER
+	head
+		meta(charset="utf-8")
+		meta(name="viewport", content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width")
+		meta(http-equiv="X-UA-Compatible" content="IE=edge")
+
+		//- Appstore smart banner
+		meta(name="apple-itunes-app", content="app-id=904208546")
+
+		title= page.title || 'Evilcome -- Share your game idea.'
+		link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
+
+		//- Customise the stylesheet for your site by editing /public/styles/site.less
+		//- All .less files will be automatically compiled and minified in production.
+
+		link(href="/styles/site.min.css", rel="stylesheet")
+
+		//- This file provides the default styling for the KeystoneJS Content Editor
+		if user && user.canAccessKeystone
+			link(href="/keystone/styles/content/editor.min.css", rel="stylesheet")
+
+		//- Include template-specific stylesheets by extending the css block
+		block css
+
+		//- Add any other template-specific HEAD tags by extending the head block
+		block head
+
+	//- HTML BODY
+	body(class=section ? 'sitesection-' + section : null)
+		.site-wrapper.has-sticky-footer
+
+			//- APP ALERT
+			if section == 'home'
+				include ../includes/layout/app-alert
+
+			//- SITE HEADER
+			include ../includes/layout/header
+			
+			//- SITE BODY
+			block body
+				main.site-body(role='main')
+
+					block intro
+
+					block flash-messages
+						+flash-messages(messages)
+
+					block content
+						
+			//- SITE FOOTER
+			block footer
+				include ../includes/layout/footer
+
+			
+		//- MODALS
+		block modal
+		if !user
+			#modal-auth(tabindex="-1", role="dialog", aria-labelledby="signin", aria-hidden="true").modal.fade
+				.modal-dialog
+					.modal-content
+						+auth-forms({ modal: true, initial: 'signin' })
+
+
+		//- JAVASCRIPT
+		script(src='/js/lib/jquery/jquery-1.11.1.min.js')
+		script(src='http://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js')
+		script(src='/js/lib/bootstrap/collapse.js')
+		script(src='/js/lib/bootstrap/dropdown.js')
+		script(src='/js/lib/bootstrap/modal.js')
+
+		//- The KeystoneJS Content Editor provides support for ks-editable data attributes,
+		//- which generate links to edit content for users who can access Keystone
+		if user && user.canAccessKeystone
+			script(src='/keystone/js/content/editor.js')
+
+		//- Add scripts that are globally required by your site here.
+
+		//- Include template-specific javascript files by extending the js block
+		
+		script(src='/js/ui.js')
+
+		//- ANALYTICS
+		include ../includes/layout/analytics
+		block js

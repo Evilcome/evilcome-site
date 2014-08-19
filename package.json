@@ -1,0 +1,28 @@
+{
+  "name": "evilcome",
+  "version": "1.0.0",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Evilcome/evilcome-site.git"
+  },
+  "dependencies": {
+    "keystone": "~0.2.25",
+    "async": "~0.9.0",
+    "underscore": "~1.6.0",
+    "dotenv": "0.4.0",
+    "passport": "^0.2.0",
+    "passport-github": "^0.1.5",
+    "request": "^2.34.0",
+    "moment": "^2.6.0",
+    "crypto": "0.0.3"
+  },
+  "engines": {
+    "node": ">=0.10.22",
+    "npm": ">=1.3.14"
+  },
+  "scripts": {
+    "start": "node keystone.js"
+  },
+  "main": "keystone.js"
+}

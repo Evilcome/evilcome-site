@@ -1,0 +1,45 @@
+mixin display_game(game)
+
+	- var today = new Date();
+
+	.tile.ph-1.pv-1
+		.meetup-calendar.calendar.hidden-xs.hidden-sm.calendar--past
+			.calendar__header=game._.publishedAt.format('MMM')
+			.calendar__body
+				.calendar__date=game._.publishedAt.format('DD')
+				.calendar__year=game._.publishedAt.format('YYYY')
+		.meetup-content
+			
+			//- platform
+			.row
+				.col-xs-3
+					img(src= game._.image.thumbnail(360,360), alt=game.name, width=120, height=120)
+				.col-xs-9
+					h2.mv-5= game.name
+					.row
+						.col-xs-4
+							if game.ios.isAvailable
+								a(href=game.ios.link, target="_blank")
+									img(src= '/images/app-store-button.png', .thumbnail(360,360), alt=ios, height=45)
+							else 
+								img(src= '/images/app-store-button.png', .thumbnail(360,360), alt=ios, height=45, style='opcity: 0.2;')
+						.col-xs-4
+							if game.andriod.isAvailable
+								a(href=game.andriod.link)
+									img(src= '/images/google-play-button.png', .thumbnail(360,360), alt=andriod, height=45)
+							else 
+								img(src= '/images/google-play-button.png', .thumbnail(360,360), alt=andriod, height=45, style='opacity: 0.2;')
+
+			if game.repositoryUrl
+				hr
+				p
+					span.entypo-social.entypo-github &nbsp; 
+					a(href=game.repositoryUrl, target="_blank")
+						span Github Repository
+						
+				
+			if game.description
+				hr
+				p!= game.description
+
+		

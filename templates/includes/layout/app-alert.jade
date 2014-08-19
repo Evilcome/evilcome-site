@@ -1,0 +1,16 @@
+#app-alert(class=(system.mobile && system.ios ? "hidden" : null ))
+	a(href='javascript:;').dismiss-alert.dismiss-alert-md.visible-md.visible-lg: span &times;
+	.container: .row
+		.col-sm-8.app-icon.col-xs-8
+			a(href='javascript:;').dismiss-alert.dismiss-alert-xs.visible-xs.visible-sm: span &times;
+			img(src='/images/app-icon.png', alt='app icon', title='app icon', width='64')
+			.visible-md.visible-lg
+				h5 Grubby Worm 
+				p.mb-0 Grubby worm come here! Grub! Grub! Grub!
+			.visible-xs.visible-sm
+				h5 Grubby Worm
+				p.mb-0 IOS app
+		.col-sm-4.col-xs-4
+			a(href="https://itunes.apple.com/us/app/grubby-worm/id904208546?mt=8", target="itunes_store").app-button.hidden-xs.hidden-sm
+				img(src='/images/app-store-button.png', alt='download on the appstore', title='download on the appstore', height='45')
+			a(href="https://itunes.apple.com/us/app/grubby-worm/id904208546?mt=8", target="_blank").app-link.visible-xs.visible-sm.text-right Install

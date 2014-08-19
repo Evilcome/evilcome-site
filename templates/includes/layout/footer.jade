@@ -1,0 +1,29 @@
+//- SITE FOOTER
+footer.site-footer.site-footer--sticky: .container
+	.row
+		.col-sm-4
+			h5.footer-heading About
+			p We are talking about mobile phone game ideas & sharing our new game apps. 
+			ul.list-inline
+				li: a(href='/about') More about Evilcome
+				li: a(href='mailto:evilcome.com@gmail.com') Contact us
+
+		.col-sm-8
+			.row
+				.col-xs-6
+					h5.footer-heading Members
+					ul
+						li: a(href='/members') Members
+						if !user
+							li: a(href='/join').js-auth-trigger Become a Member
+				.col-xs-6
+					h5.footer-heading Resources
+					ul
+						li: a(href='/games') Games
+						li: a(href='/ideas') Ideas
+						li: a(href='/links') Links
+
+				
+	.row.footer-copyright
+		p Copyright &copy; 2014 Evilcome. Powered by <a href='http://keystonejs.com', target='_blank'>KeystoneJS</a>.
+		p Please feel free to clone our site and make your own! You can <a href="https://github.com/Eviclome/evilcome-site", target='_blank'>find it on GitHub</a>.

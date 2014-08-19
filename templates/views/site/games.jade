@@ -1,0 +1,33 @@
+extends ../../layouts/default
+include ../../mixins/meetup
+
+block intro
+	.container-sm
+		.page-intro
+			h1.page-title Games
+			p.lead With game ideas here, We are making some games(ios android or html5), and all of the games are open source.
+
+
+		//- if upcomingMeetup
+		//- 	+meetup(upcomingMeetup)
+block content
+	.page-content: .container
+		.timeline
+			.timeline-path
+			.timeline-item--offset
+			each game, i in pastGames
+				.timeline-item(class=i % 2 == 1 ? 'timeline-item--even' : 'timeline-item--odd')
+					.timeline-item-node
+					a(href=game.url).timeline-item-inner
+						h6.text-caps.text-danger= game._.publishedAt.format('YYYY - MM - DD ')
+						.row
+							.col-xs-8
+								h4= game.name
+								!=utils.cropString( utils.htmlToText(game.shortDescription), 240, '...', true )
+							.col-xs-4
+								img(src= game._.image.thumbnail(360,360), alt=game.name, width=110, height=110)
+						
+						//- !=utils.htmlToText(game.description)
+		
+		if !upcomingMeetup && !pastGames.length
+			h3.text-muted There are no games yet.

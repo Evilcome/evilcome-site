@@ -1,0 +1,10 @@
+extends ../../layouts/default
+
+include ../../mixins/game
+
+block content
+	.container-sm
+		.page-intro.text-left
+			a(href='/games').text-muted &larr; Back to all games
+		.page-content
+			+display_game(game)
