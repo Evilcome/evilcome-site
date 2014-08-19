@@ -1,7 +1,7 @@
 evilcome-site
 =============
 
-Source code of evilcome.com, based on [JedWatson/sydjs-site](https://github.com/JedWatson/sydjs-site).
+Source code of [evilcome.com](http://evilcome.com), based on [JedWatson/sydjs-site](https://github.com/JedWatson/sydjs-site).
 
 ## Getting Started
 
