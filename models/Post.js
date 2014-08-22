@@ -25,10 +25,6 @@ Post.add({
 	categories: { type: Types.Relationship, ref: 'PostCategory', many: true }
 });
 
-Post.schema.virtual('content.full').get(function() {
-	return this.content.extended || this.content.brief;
-});
-
 
 /**
  * Virtuals

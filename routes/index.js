@@ -70,7 +70,7 @@ exports = module.exports = function(app) {
 	app.get('/', routes.views.index);
 
 	app.get('/ideas/:category?', routes.views.idea);
-	app.get('/ideas/post/:post', routes.views.post);
+	app.all('/ideas/post/:post', routes.views.post);
 
 	app.get('/games', routes.views.games);
 	app.get('/games/:game', routes.views.game);

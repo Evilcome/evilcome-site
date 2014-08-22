@@ -9,6 +9,20 @@ block intro
 
 	article#hero
 
+		//- section(style='margin-bottom:25px;').container
+		//- 	if post
+		//- 		ul(style='margin: 0 10%;').media-list
+		//- 			li.media
+		//- 				a(href='/ideas/post/' + post.slug).pull-left
+		//- 					img(src=post._.image.fit(64,64), alt=post.title).media-object
+
+		//- 				div.media-body
+		//- 					a(href='/ideas/post/' + post.slug)
+		//- 						h4(class='media-heading')= post.title  
+		//- 					!= post.content.brief
+		//- 	else 
+		//- 		h3 we have no ideas yet.
+
 		section.hero-details: .container
 
 			//- Attending

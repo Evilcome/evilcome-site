@@ -1,6 +1,6 @@
 var keystone = require('keystone');
 
-var Post = keystone.list('Post');
+var Post = keystone.list('Post'),
 	PostComment = keystone.list('PostComment');
 
 exports = module.exports = function(req, res) {
@@ -66,7 +66,7 @@ exports = module.exports = function(req, res) {
 				locals.validationErrors = err.errors;
 			} else {
 				req.flash('success', 'Your comment has been added successfully.');
-				return res.redirect('/blog/post/' + locals.post.slug);
+				return res.redirect('/ideas/post/' + locals.post.slug);
 			}
 			next();
 		});

@@ -17,7 +17,7 @@ mixin post(post)
 			span.illustrative-heading__text
 				time(datetime=post._.publishedDate.format('YYYY-MM-DD'), itemprop='datePublished')=post._.publishedDate.format('MMMM D, YYYY')
 		.blog-post__image
-			a(href='/blog/post/' + post.slug)
+			a(href='/ideas/post/' + post.slug)
 				if post.image.exists
 					img(src=post._.image.fit(770,510), alt=post.title).img-responsive
 		.blog-post__content(data-ks-editable=editable(user, { list: 'Post', id: post.id }))

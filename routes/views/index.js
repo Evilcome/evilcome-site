@@ -1,4 +1,5 @@
 var keystone = require('keystone'),
+	Post = keystone.list('Post'),
 	User = keystone.list('User');
 
 exports = module.exports = function(req, res) {
@@ -17,6 +18,15 @@ exports = module.exports = function(req, res) {
 			if (err) res.err(err);
 
 			locals.members = members;
+			next();
+		});
+	});
+
+	view.on('init', function(next) {
+		Post.model.findOne(function(err, post) {
+			if (err) res.err(err);
+
+			locals.post = post;
 			next();
 		});
 	});
